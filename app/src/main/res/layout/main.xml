@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/mainLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_gravity="left"
+	android:gravity="center"
+	android:orientation="vertical"
+	android:paddingTop="4px">
+
+	<Button
+		android:id="@+id/buttonA"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_marginRight="31dp"
+		android:layout_toLeftOf="@+id/buttonB"
+		android:text="           A              " />
+
+	<Button
+		android:id="@+id/buttonB"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_toRightOf="@+id/lan2"
+		android:text="           B              " />
+
+	<TextView
+		android:id="@+id/labelLanVuaNhap"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/lan3"
+		android:layout_below="@+id/buttonA"
+		android:layout_marginTop="16dp"
+		android:text="Ba lần gần nhất:" />
+
+	<TextView
+		android:id="@+id/labelBangKetQua"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/lan3"
+		android:layout_below="@+id/labelLanVuaNhap"
+		android:layout_marginTop="51dp"
+		android:text="    Bảng kết quả thống kê: " />
+
+	<TextView
+		android:id="@+id/valueLanVuaNhap"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/lan2"
+		android:gravity="left" />
+
+	<TextView
+		android:id="@+id/valueHaiLanTruoc"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/labelBangKetQua"
+		android:layout_alignTop="@+id/labelBangKetQua"
+		android:layout_toRightOf="@+id/valueLanVuaNhap"
+		android:gravity="center" />
+
+	<TableLayout
+		android:id="@+id/tableKetQua"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/labelBangKetQua">
+
+		<TableRow
+			android:id="@+id/rowHeader"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/header"
+				android:layout_width="74dp"
+				android:layout_height="match_parent" />
+
+			<TextView
+				android:id="@+id/header1"
+				android:layout_width="109dp"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:text="I"
+				android:textAlignment="center"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/header2"
+				android:layout_width="105dp"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:text="II"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/header3"
+				android:layout_width="99dp"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:text="III"
+				android:textSize="18sp" />
+
+		</TableRow>
+
+		<TableRow
+			android:id="@+id/row1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/nextA"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="1   (AAAA)" />
+
+			<TextView
+				android:id="@+id/per1A"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:text="0%" />
+
+			<TextView
+				android:id="@+id/per2A"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="0%" />
+
+			<TextView
+				android:id="@+id/per3A"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:text="0%" />
+		</TableRow>
+
+		<TableRow
+			android:id="@+id/row2"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/nextB"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="2   (AAAB)" />
+
+			<TextView
+				android:id="@+id/per1B"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="0%" />
+
+			<TextView
+				android:id="@+id/per2B"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="0%" />
+
+			<TextView
+				android:id="@+id/per3B"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="0%" />
+		</TableRow>
+
+	</TableLayout>
+
+	<TextView
+		android:id="@+id/lan3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/labelLanVuaNhap"
+		android:layout_toLeftOf="@+id/buttonA"
+		android:text="lan3" />
+
+	<TextView
+		android:id="@+id/lan2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBaseline="@+id/lan3"
+		android:layout_alignBottom="@+id/lan3"
+		android:layout_centerHorizontal="true"
+		android:text="lan2" />
+
+	<TextView
+		android:id="@+id/lanGanNhat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignRight="@+id/buttonB"
+		android:layout_below="@+id/valueLanVuaNhap"
+		android:text="langannhat" />
+
+</RelativeLayout>
