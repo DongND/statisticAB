@@ -197,4 +197,13 @@
 		android:layout_below="@+id/valueLanVuaNhap"
 		android:text="langannhat" />
 
+	<Button
+		android:id="@+id/btnXemLichSu"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/labelBangKetQua"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="140dp"
+		android:text="Xem lịch sử đã nhập " />
+
 </RelativeLayout>

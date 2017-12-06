@@ -1,6 +1,7 @@
 package samples.employeedirectory;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -96,9 +97,10 @@ public class MainStatistic extends Activity {
         db.execSQL("CREATE TABLE IF NOT EXISTS statistic (_id INTEGER PRIMARY KEY AUTOINCREMENT, ab VARCHAR(1))");
         init();
 
-        // When click to buttonB
         final Button buttonA = (Button) findViewById(R.id.buttonA);
         final Button buttonB = (Button) findViewById(R.id.buttonB);
+        final Button buttonXemLichSu = (Button) findViewById(R.id.btnXemLichSu);
+
         final TextView lanVuaNhap = (TextView) findViewById(R.id.lanGanNhat);
         final TextView lan2 = (TextView) findViewById(R.id.lan2);
         final TextView lan3 = (TextView) findViewById(R.id.lan3);
@@ -117,22 +119,22 @@ public class MainStatistic extends Activity {
         final TextView header3 = (TextView) findViewById(R.id.header3);
 
         //Display state when init
-        String lanGanNhat = StatisticApp.buildTextDisplay(listInput);
+        String lanGanNhat = Utils.buildTextDisplay(listInput);
         lanVuaNhap.setText("         " + lanGanNhat);
 
         String lan2Display = "";
         if (listInput.size() >=5){
-            lan2Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput,0, listInput.size()-1));
+            lan2Display = Utils.buildTextDisplay(Utils.getSublist(listInput,0, listInput.size()-1));
         }
         lan2.setText(lan2Display);
 
         String lan3Display = "";
         if (listInput.size() >= 6){
-            lan3Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput,0, listInput.size()-2));
+            lan3Display = Utils.buildTextDisplay(Utils.getSublist(listInput,0, listInput.size()-2));
         }
         lan3.setText(lan3Display);
 
-        Map<String, Long> mapResult = StatisticApp.calculatePercentage(listInput);
+        Map<String, Long> mapResult = Utils.calculatePercentage(listInput);
 
         if (mapResult != null){
             per1A.setText(String.valueOf(mapResult.get("1A")) + " %");
@@ -142,8 +144,8 @@ public class MainStatistic extends Activity {
             per3A.setText(String.valueOf(mapResult.get("3A")) + " %");
             per3B.setText(String.valueOf(mapResult.get("3B")) + " %");
 
-            String nA = StatisticApp.getLastInput(listInput, 3)+ "A";
-            String nB = StatisticApp.getLastInput(listInput, 3) + "B";
+            String nA = Utils.getLastInput(listInput, 3)+ "A";
+            String nB = Utils.getLastInput(listInput, 3) + "B";
             nextA.setText( mapDefinition.get(nA) + " ( " + nA +" )");
             nextB.setText( mapDefinition.get(nB) + " ( " + nB +" )");
         }
@@ -160,23 +162,23 @@ public class MainStatistic extends Activity {
                     listInput.add(text);
                 }
 
-                String lanGanNhat = StatisticApp.buildTextDisplay(listInput);
+                String lanGanNhat = Utils.buildTextDisplay(listInput);
                 lanVuaNhap.setText("         " +lanGanNhat);
 
                 String lan2Display = "";
                 if (listInput.size() >=5){
-                    lan2Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput,0, listInput.size()-1));
+                    lan2Display = Utils.buildTextDisplay(Utils.getSublist(listInput,0, listInput.size()-1));
                 }
                 lan2.setText(lan2Display);
 
                 String lan3Display = "";
                 if (listInput.size() >= 6){
-                    lan3Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput,0, listInput.size()-2));
+                    lan3Display = Utils.buildTextDisplay(Utils.getSublist(listInput,0, listInput.size()-2));
                 }
                 lan3.setText(lan3Display);
 
 
-                Map<String, Long> mapResult = StatisticApp.calculatePercentage(listInput);
+                Map<String, Long> mapResult = Utils.calculatePercentage(listInput);
 
                 if (mapResult != null){
                     per1A.setText(String.valueOf(mapResult.get("1A")) + " %");
@@ -186,8 +188,8 @@ public class MainStatistic extends Activity {
                     per3A.setText(String.valueOf(mapResult.get("3A")) + " %");
                     per3B.setText(String.valueOf(mapResult.get("3B")) + " %");
 
-                    String nA = StatisticApp.getLastInput(listInput, 3)+ "A";
-                    String nB = StatisticApp.getLastInput(listInput, 3) + "B";
+                    String nA = Utils.getLastInput(listInput, 3)+ "A";
+                    String nB = Utils.getLastInput(listInput, 3) + "B";
                     nextA.setText( mapDefinition.get(nA) + " ( " + nA +" )");
                     nextB.setText( mapDefinition.get(nB) + " ( " + nB +" )");
                 }
@@ -206,22 +208,22 @@ public class MainStatistic extends Activity {
                     listInput.add(text);
                 }
 
-                String lanGanNhat = StatisticApp.buildTextDisplay(listInput);
+                String lanGanNhat = Utils.buildTextDisplay(listInput);
                 lanVuaNhap.setText("         " + lanGanNhat);
 
                 String lan2Display = "";
                 if (listInput.size() >=5){
-                    lan2Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput, 0, listInput.size()-1));
+                    lan2Display = Utils.buildTextDisplay(Utils.getSublist(listInput, 0, listInput.size()-1));
                 }
                 lan2.setText(lan2Display);
 
                 String lan3Display = "";
                 if (listInput.size() >= 6){
-                    lan3Display = StatisticApp.buildTextDisplay(StatisticApp.getSublist(listInput, 0, listInput.size()-2));
+                    lan3Display = Utils.buildTextDisplay(Utils.getSublist(listInput, 0, listInput.size()-2));
                 }
                 lan3.setText(lan3Display);
 
-                Map<String, Long> mapResult = StatisticApp.calculatePercentage(listInput);
+                Map<String, Long> mapResult = Utils.calculatePercentage(listInput);
 
                 if (mapResult != null){
                     per1A.setText(String.valueOf(mapResult.get("1A")) + " %");
@@ -231,14 +233,22 @@ public class MainStatistic extends Activity {
                     per3A.setText(String.valueOf(mapResult.get("3A")) + " %");
                     per3B.setText(String.valueOf(mapResult.get("3B")) + " %");
 
-                    String nA = StatisticApp.getLastInput(listInput, 3)+ "A";
-                    String nB = StatisticApp.getLastInput(listInput, 3) + "B";
+                    String nA = Utils.getLastInput(listInput, 3)+ "A";
+                    String nB = Utils.getLastInput(listInput, 3) + "B";
                     nextA.setText( mapDefinition.get(nA) + " ( " + nA +" )");
                     nextB.setText( mapDefinition.get(nB) + " ( " + nB +" )");
                 }
             }
         });
 
+
+        // Event handle
+        buttonXemLichSu.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), ListHistory.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
 
     }
 

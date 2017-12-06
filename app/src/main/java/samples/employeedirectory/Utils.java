@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by Admin on 11/18/2017.
  */
 
-public class StatisticApp {
+public class Utils {
 
     private static Map<String, Integer> mapDefinition;
 
@@ -156,7 +156,7 @@ public class StatisticApp {
 
     public static String buildTextDisplay (List<String> listInput){
         init();
-        String textDisplay = StatisticApp.getLastInput(listInput, 4);
+        String textDisplay = Utils.getLastInput(listInput, 4);
         Integer meaningText = (Integer) mapDefinition.get(textDisplay);
         if(meaningText != null) {
             textDisplay = meaningText + " (" + textDisplay  + ")";
